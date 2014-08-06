@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en" ng-app="waimaiApp" ng-controller="foodListCtrl">
+<head>
+  <meta charset="utf-8">
+  <title ng-bind-template="同步点餐-{{query}}">同步点餐</title>
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+  <link rel="stylesheet" href="css/app.css">
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="js/controllers.js"></script>
+</head>
+<body>
+
+  <div class="container-fluid">
+  	<div class="row">
+  		<div class="col-md-2">
+  			Search: <input ng-model="query"><br>
+  			价格<select name="" id="" ng-model="price">
+  				<option value="-price">高->低</option>
+  				<option value="price">低->高</option>
+  			</select>
+  		</div>
+  		<div class="col-md-10">
+  			<ul class="items">
+  				<li ng-repeat="item in items | filter:query |orderBy:price">
+  					<p>￥{{item.price}}-{{item.name}}</p>
+  					<img ng-src="{{item.pic}}" alt="">
+
+  				</li>
+  			</ul>
+  		</div>
+  	</div>
+  </div>
+
+</body>
+</html>
